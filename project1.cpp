@@ -8,7 +8,7 @@ using namespace std;
 // list();
 // history();
 // printwd();
-//chdir();
+// chdir();
 
 int main(){
 	string command;//store command inputs
