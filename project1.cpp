@@ -1,4 +1,5 @@
 #include "pwdFun.cpp"
+#include "chdirFun.cpp"
 #include <iostream>
 #include <string.h>
 #include <stdlib.h>
