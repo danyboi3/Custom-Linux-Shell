@@ -1,3 +1,4 @@
+#include "pwdFun.cpp"
 #include <iostream>
 #include <string.h>
 #include <stdlib.h>
@@ -16,7 +17,7 @@ int main(){
 	string gofile = "";//store destination file
 	
 	while(command != "exit"){
-		if(command == "list"){
+                if(command == "list"){
 			//list();				
 		}
 		else if(command == "history"){
@@ -24,13 +25,14 @@ int main(){
 		}
 		else if(command == "printwd"){
 			//printwd();
+		pwdFun();	
 		}		
 		else if(cd == "chdir"){
 			//chdir();
 		}
-		else if(){
+		//else if(){
 			//run an external program
-		}
+		//}
 		else if(command != "\0"){
 			cout << "ERROR\n";
 		}	
