@@ -29,7 +29,19 @@ int main(){
 		printwd();	
 		}		
 		else if(command.substr(0, 6) == "chdir"){
-			//chdir(command.substr(6, command.length()));
+      
+			path = command.substr(6, command.length());
+         
+         if(path == ""){
+            system("cd");
+         }
+         else if((std::all_of(path.begin(), path.end(), isspace)){
+            system("cd");
+         }
+         else{
+            system("cd" + path);
+         }
+         
 		}
 		//else if(){
 			//run an external program
