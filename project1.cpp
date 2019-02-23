@@ -27,8 +27,8 @@ int main(){
 			//printwd();
 		printwd();	
 		}		
-		else if(command.substr(0, 7) == "chdir "){
-			//chdir();
+		else if(command.substr(0, 6) == "chdir"){
+			//chdir(command.substr(6, command.length()));
 		}
 		//else if(){
 			//run an external program
