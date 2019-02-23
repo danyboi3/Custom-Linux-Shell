@@ -6,7 +6,6 @@
 
 using namespace std;
 
-// list();
 // history();
 // printwd();
 // chdir();
@@ -18,7 +17,7 @@ int main(){
 	
 	while(command != "exit"){
                 if(command == "list"){
-			//list();				
+			system("ls");				
 		}
 		else if(command == "history"){
 			//history();
@@ -37,6 +36,7 @@ int main(){
 			cout << "ERROR\n";
 		}	
 		
+		cout<<"UnknownShell-->";
 		getline(cin,command);
 		cd =command.substr(0,5);
 	
