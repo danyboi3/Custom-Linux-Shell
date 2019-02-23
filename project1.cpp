@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
 
 using namespace std;
 
@@ -36,7 +37,7 @@ int main(){
 			cout << "ERROR\n";
 		}	
 		
-		cout<<"UnknownShell-->";
+		cout<<"UnknownShell#: "<<get_current_dir_name()<<" -->";
 		getline(cin,command);
 		cd =command.substr(0,5);
 	
