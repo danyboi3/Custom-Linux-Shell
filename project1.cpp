@@ -25,7 +25,7 @@ int main(){
 		}
 		else if(command == "printwd"){
 			//printwd();
-		pwdFun();	
+		printwd();	
 		}		
 		else if(cd == "chdir"){
 			//chdir();
