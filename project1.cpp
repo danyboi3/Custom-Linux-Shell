@@ -1,5 +1,4 @@
 #include "pwdFun.cpp"
-#include "chdirFun.cpp"
 #include <iostream>
 #include <string.h>
 #include <stdlib.h>
@@ -28,20 +27,8 @@ int main(){
 			//printwd();
 		printwd();	
 		}		
-		else if(command.substr(0, 6) == "chdir"){
-      
-			path = command.substr(6, command.length());
-         
-         if(path == ""){
-            system("cd");
-         }
-         else if((std::all_of(path.begin(), path.end(), isspace)){
-            system("cd");
-         }
-         else{
-            system("cd" + path);
-         }
-         
+		else if(command.substr(0, 5) == "chdir"){
+			chdir(command.substr(6, command.length()).c_str());
 		}
 		//else if(){
 			//run an external program
