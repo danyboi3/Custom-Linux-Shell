@@ -7,14 +7,8 @@
 
 using namespace std;
 
-// history();
-// printwd();
-// chdir();
-
 int main(){
 	string command;//store command inputs
-	string cd = "";//if user type "chdir", cd = "chdir"
-	string gofile = "";//store destination file
 	string errMessage = "ERROR";
 
 	while(command != "exit"){
@@ -26,7 +20,7 @@ int main(){
 		}
 		else if(command == "printwd"){
 			//printwd();
-		printwd();	
+			printwd();	
 		}		
 		else if(command.substr(0, 5) == "chdir"){
 			if(command.length() > 5){
@@ -36,23 +30,13 @@ int main(){
 				cout << "***ERROR: INVALID PATH***" << endl;
 			}
 		}
-		//else if(){
-			//run an external program
-		//}
 		else if(command != "\0"){
-			cout << errMessage << endl;
+			system(command.c_str());
 		}	
 		
 		cout<<"UnknownShell#: "<<get_current_dir_name()<<" -->";
 		getline(cin,command);
-		cd =command.substr(0,5);
-	
-		if(command.size() > 6){
-			 gofile = command.substr(6, command.length()-5);
-		}else{
-			gofile = "";
-		}
-
+		
 	}
   
 
