@@ -1,9 +1,7 @@
-<<<<<<< HEAD
+
 #include "includes.h"
 
 using namespace std;
-
-
 
 
 void ft_add_history(vector<string> & history, string input)
@@ -31,45 +29,6 @@ int main ()
 		{
 			ft_add_history(history1, command);
 			system("ls");
-=======
-#include "pwdFun.cpp"
-#include <iostream>
-#include <string.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <dirent.h>
-
-using namespace std;
-
-int main(){
-	string command = "";//store command inputs
-	string errMessage = "ERROR";
-
-	while(command != "exit"){
-                if(command.substr(0, 4) == "list"){
-			if(command == "list"){
-				system("ls");
-			}
-			else{
-				DIR *directory;
-				struct dirent *file;
-
-				directory = opendir( (command.substr(5, command.length())).c_str() );
-				
-				if(directory == NULL){
-					cout << "***ERROR: INVALID PATH***" << endl;
-				}
-				else{
-					cout << "DIRECTORY: " << command.substr(5, command.length()) << endl; 
-					while((file = readdir(directory)) != NULL){
-						cout << "\t" << file->d_name  << endl;
-					}
-					cout << "\n";
-				}
-			}				
->>>>>>> 6972926d193975c95c8dd90a4569b6aa616618a8
 		}
 		else if(command == "history")
 		{
