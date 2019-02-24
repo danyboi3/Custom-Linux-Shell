@@ -15,7 +15,8 @@ int main(){
 	string command;//store command inputs
 	string cd = "";//if user type "chdir", cd = "chdir"
 	string gofile = "";//store destination file
-	
+	string errMessage = "ERROR";
+
 	while(command != "exit"){
                 if(command == "list"){
 			system("ls");				
@@ -28,13 +29,18 @@ int main(){
 		printwd();	
 		}		
 		else if(command.substr(0, 5) == "chdir"){
-			chdir(command.substr(6, command.length()).c_str());
+			if(command.length() > 5){
+				chdir(command.substr(6, command.length()).c_str());
+			}
+			else{
+				cout << "***ERROR: INVALID PATH***" << endl;
+			}
 		}
 		//else if(){
 			//run an external program
 		//}
 		else if(command != "\0"){
-			cout << "ERROR\n";
+			cout << errMessage << endl;
 		}	
 		
 		cout<<"UnknownShell#: "<<get_current_dir_name()<<" -->";
