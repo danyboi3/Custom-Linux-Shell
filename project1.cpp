@@ -23,7 +23,8 @@ int main(){
 			printwd();	
 		}		
 		else if(command.substr(0, 5) == "chdir"){
-			if(command.length() > 5){
+			if(command.length() > 5 && command.substr(5, 6) == " " 
+				&& chdir(command.substr(6, command.length()).c_str()) == 0 ){
 				chdir(command.substr(6, command.length()).c_str());
 			}
 			else{
