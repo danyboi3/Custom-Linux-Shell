@@ -4,16 +4,37 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <sys/types.h>
+#include <dirent.h>
 
 using namespace std;
 
 int main(){
-	string command;//store command inputs
+	string command = "";//store command inputs
 	string errMessage = "ERROR";
 
 	while(command != "exit"){
-                if(command == "list"){
-			system("ls");				
+                if(command.substr(0, 4) == "list"){
+			if(command == "list"){
+				system("ls");
+			}
+			else{
+				DIR *directory;
+				struct dirent *file;
+
+				directory = opendir( (command.substr(5, command.length())).c_str() );
+				
+				if(directory == NULL){
+					cout << "***ERROR: INVALID PATH***" << endl;
+				}
+				else{
+					cout << "DIRECTORY: " << command.substr(5, command.length()) << endl; 
+					while((file = readdir(directory)) != NULL){
+						cout << "\t" << file->d_name  << endl;
+					}
+					cout << "\n";
+				}
+			}				
 		}
 		else if(command == "history"){
 			//history();
