@@ -1,5 +1,7 @@
 
 #include "includes.h"
+#include <sys/types.h>
+#include <dirent.h>
 
 using namespace std;
 
@@ -11,12 +13,35 @@ int main ()
 
 	while(command != "exit")
 	{
-		
-		if (command == "list")
+		if(command.substr(0, 4) == "list")
 		{
-			ft_add_history(history1, command);
-			system("ls");
-		}
+			if (command == "list")
+			{
+				ft_add_history(history1, command);
+				system("ls");
+			}
+			else
+			{
+				DIR *directory;
+				struct dirent *file;
+
+ 				directory = opendir( (command.substr(5, command.length())).c_str() );
+
+ 				if(directory == NULL)
+ 				{
+					cout << "***ERROR: INVALID PATH***" << endl;
+				}
+				else
+				{
+					cout << "DIRECTORY: " << command.substr(5, command.length()) << endl; 
+						while((file = readdir(directory)) != NULL)
+						{
+							cout << "\t" << file->d_name  << endl;
+						}
+					cout << "\n";
+				}
+			}	
+		}			
 		else if(command == "history")
 		{
 			ft_add_history(history1, command);
@@ -30,7 +55,7 @@ int main ()
 		else if(command.substr(0, 5) == "chdir")
 		{
 			ft_add_history(history1, command);
-			if(command.length() > 5 && command.substr(5, 6) == " " 
+			if(command.length() > 5 && command.substr(5, 6) == " " )
 		//		&& chdir(command.substr(6, command.length()).c_str()) == 0 )
 			{
 				chdir(command.substr(6, command.length()).c_str());
