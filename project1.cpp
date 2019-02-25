@@ -3,24 +3,11 @@
 
 using namespace std;
 
-
-void ft_add_history(vector<string> & history, string input)
-{
-	history.push_back(input);
-}
-
-void history(vector<string> & history)
-{
-	for(auto it=history.begin(); it!=history.end();++it)
-        cout << *it <<"\n";
-}
-
-
 int main ()
 {
 
 	vector<string> history1;
-	string command;
+	string		command;
 
 	while(command != "exit")
 	{
@@ -57,14 +44,14 @@ int main ()
 		{
 			system(command.c_str());
 		}	
-		else if (command== "exit")
+		else if (command == "exit")
 			exit(EXIT_SUCCESS);
 
-			cout << "Enter command: ";
-			cin >> command;
+			cout << GetCurrentWorkingDir() << ": ";
+			cin >>command;
 	}
 
-	cout<<"Current directory: "<<GetCurrentWorkingDir()<<'\n';
+	cout << "Current directory: " << GetCurrentWorkingDir() << endl;
 	return 0;
 }
 

@@ -6,7 +6,7 @@ SRC = project1.cpp
 all: $(NAME)
 
 $(NAME):
-		g++ -o $(NAME) $(SRC)
+		g++ -std=c++17 -o $(NAME) $(SRC)
 
 clean :
 	/bin/rm -f *.o project1
