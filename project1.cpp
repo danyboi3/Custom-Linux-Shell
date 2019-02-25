@@ -71,7 +71,7 @@ int main ()
 			}
 			else{
 				command = command.substr(6,command.length());
-				int isError =chdir(command.c_str());
+				int isError = chdir(command.c_str());
 				if(isError){
 					cout << "***ERROR: INVALID PATH***\n";	
 				}
@@ -85,7 +85,7 @@ int main ()
 		/*else if (command == "exit")
 			exit(EXIT_SUCCESS);*/
 
-			cout << GetCurrentWorkingDir() << ": ";
+			cout << "UnknownShell#: " << GetCurrentWorkingDir() << ": ";
 			//cin >>command; 
 			getline(cin, command);
 			ft_add_history(history1, command);
