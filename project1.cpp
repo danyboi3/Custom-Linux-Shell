@@ -44,7 +44,7 @@ int main ()
 		{
 			ft_add_history(history1, command);
 			if(command.length() > 5 && command.substr(5, 6) == " " 
-				&& chdir(command.substr(6, command.length()).c_str()) == 0 )
+		//		&& chdir(command.substr(6, command.length()).c_str()) == 0 )
 			{
 				chdir(command.substr(6, command.length()).c_str());
 			}
